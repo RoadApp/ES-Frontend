@@ -34,8 +34,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btn_fb_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
+
     <Button
-        android:id="@+id/btnGoogleSignOut"
+        android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

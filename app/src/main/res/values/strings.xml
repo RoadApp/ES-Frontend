@@ -10,4 +10,6 @@
     <string name="login_welcome">Bem bindo ao</string>
     <string name="login_doLogin">Faça o login para continuar.</string>
     <string name="signout">Signout</string>
+    <string name="facebook_app_id">659197504422519</string>
+    <string name="fb_login_protocol_scheme">fb659197504422519</string>
 </resources>

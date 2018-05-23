@@ -9,7 +9,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -19,6 +27,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthCredential;
@@ -32,6 +41,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
+
+    private CallbackManager mCallbackManager;
 
     @Override
     protected void onStart() {
@@ -52,7 +63,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         this.initializeUiRefs();
 
         findViewById(R.id.btnGoogleSignIn).setOnClickListener(this);
-        findViewById(R.id.btnGoogleSignOut).setOnClickListener(this);
+        findViewById(R.id.btnSignOut).setOnClickListener(this);
+        findViewById(R.id.btn_fb_login).setOnClickListener(this);
+//        findViewById(R.id.btnGoogleSignOut).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -60,6 +73,29 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
+        mCallbackManager = CallbackManager.Factory.create();
+        LoginButton fbLoginButton = findViewById(R.id.btn_fb_login);
+        fbLoginButton.setReadPermissions("email", "public_profile");
+        fbLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d("FacebookActivity", "facebook:onSuccess" + loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d("FacebookActivity", "facebook:onCancel");
+                updateUI(null);
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d("FacebookActivity", "facebook:onError", error);
+                updateUI(null);
+            }
+        });
 
         // Build a GoogleSignInClient with the options specified by gso.
         this.mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -72,11 +108,13 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         if(user == null) {
             this.mStatusTextView.setText("not logged");
             findViewById(R.id.btnGoogleSignIn).setVisibility(View.VISIBLE);
-            findViewById(R.id.btnGoogleSignOut).setVisibility(View.GONE);
+            findViewById(R.id.btn_fb_login).setVisibility(View.VISIBLE);
+            findViewById(R.id.btnSignOut).setVisibility(View.GONE);
         } else { //alguém já logado, redirecionar para tela de home
             this.mStatusTextView.setText("logged in");
             findViewById(R.id.btnGoogleSignIn).setVisibility(View.GONE);
-            findViewById(R.id.btnGoogleSignOut).setVisibility(View.VISIBLE);
+            findViewById(R.id.btn_fb_login).setVisibility(View.GONE);
+            findViewById(R.id.btnSignOut).setVisibility(View.VISIBLE);
 
         }
 
@@ -91,8 +129,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         int i = v.getId();
         if (i == R.id.btnGoogleSignIn) {
             signInGoogle();
-        } else if (i == R.id.btnGoogleSignOut) {
-            signOutGoogle();
+        } else if (i == R.id.btnSignOut) {
+            signOut();
         }
     }
 
@@ -109,6 +147,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 Log.w("GoogleActivity", "Google sign in failed", e);
                 updateUI(null);
             }
+        } else {
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -131,7 +171,27 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 });
     }
 
-    private void signOutGoogle() {
+    private void handleFacebookAccessToken(AccessToken token) {
+        Log.d("FacebookActivity", "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("FacebookActivity", "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            Log.d("FacebookActivity", "signInWithCredential:failure", task.getException());
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+
+    private void signOut() {
         mAuth.signOut();
         mGoogleSignInClient.signOut().addOnCompleteListener(this,
                 new OnCompleteListener<Void>() {
@@ -141,6 +201,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     }
                 }
         );
+        LoginManager.getInstance().logOut();
+        updateUI(null);
     }
 
     private void signInGoogle() {
