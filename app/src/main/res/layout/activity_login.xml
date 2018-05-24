@@ -57,4 +57,11 @@
         android:text="not logged"
         android:padding="10dp"/>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"
+        android:id="@+id/progressBar" />
+
 </LinearLayout>
