@@ -1,7 +1,8 @@
-package edu.ufcg.es.es_front;
+package edu.ufcg.es.es_front.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import edu.ufcg.es.es_front.R;
 
 public class CreateVehicleActivity extends AppCompatActivity {
 

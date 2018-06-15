@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.AboutActivity" />
-        <activity android:name=".CreateVehicleActivity"></activity>
+        <activity android:name=".Activities.CreateVehicleActivity"></activity>
     </application>
 
 </manifest>
