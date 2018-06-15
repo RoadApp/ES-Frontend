@@ -76,8 +76,10 @@ public class UserHomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_send) {
+            Intent aboutIntent = new Intent(this, AboutActivity.class);
+            startActivity(aboutIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
