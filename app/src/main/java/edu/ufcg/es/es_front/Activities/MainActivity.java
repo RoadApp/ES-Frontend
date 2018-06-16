@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_manage) {
-
+            //redireciona pra tela de configuracoes
 
         } else if (id == R.id.nav_send) {
             Intent aboutIntent = new Intent(this, AboutActivity.class);
