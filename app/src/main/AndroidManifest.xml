@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.UserHomeActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/title_activity_user_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- facebook -->
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.AboutActivity" />
-        <activity android:name=".Activities.CreateVehicleActivity"></activity>
+        <activity android:name=".Activities.CreateVehicleActivity" />
     </application>
 
 </manifest>

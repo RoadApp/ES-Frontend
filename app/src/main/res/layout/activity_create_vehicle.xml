@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:inputType="textPersonName"
-        android:text="Nome do veículo" />
+        android:text="Nome do veículo"
+        android:textAlignment="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,8 @@
             android:layout_margin="10dp"
             android:inputType="textPersonName"
             android:text="Marca"
-            app:layout_constraintEnd_toStartOf="@+id/editText3" />
+            app:layout_constraintEnd_toStartOf="@+id/editText3"
+            android:textAlignment="center"/>
 
         <EditText
             android:id="@+id/editText3"
@@ -37,7 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:inputType="number"
-            android:text="Ano" />
+            android:text="Ano"
+            android:textAlignment="center"/>
     </LinearLayout>
 
     <EditText
@@ -47,7 +50,8 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="number"
-        android:text="          quilometragem" />
+        android:text="quilometragem"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/editText5"
@@ -56,7 +60,8 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="number"
-        android:text="media de quilometros semanais" />
+        android:text="media de quilometros semanais"
+        android:textAlignment="center"/>
 
     <EditText
         android:id="@+id/editText6"
@@ -65,7 +70,8 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="date"
-        android:text="mes do venc. licenciamento" />
+        android:text="mes do venc. licenciamento"
+        android:textAlignment="center"/>
 
     <Button
         android:layout_width="wrap_content"

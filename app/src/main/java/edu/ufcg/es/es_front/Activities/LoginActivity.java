@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity{
             this.btnGoogleSignIn.setVisibility(View.GONE);
             this.fbLoginButton.setVisibility(View.GONE);
             this.logOutButton.setVisibility(View.VISIBLE);
-            Intent intent = new Intent(this, UserHomeActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
 
