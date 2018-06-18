@@ -102,9 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 if (id == R.id.nav_manage) {
                     //redireciona pra tela de configuracoes
 
-                } else if (id == R.id.nav_send) {
+                } else if (id == R.id.about_option) {
                     Intent aboutIntent = new Intent(context, AboutActivity.class);
                     startActivity(aboutIntent);
+
+                } else if (id == R.id.my_vehicles_option){
+                    Intent myVehiclesIntent = new Intent();
+                    startActivity(myVehiclesIntent);
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
