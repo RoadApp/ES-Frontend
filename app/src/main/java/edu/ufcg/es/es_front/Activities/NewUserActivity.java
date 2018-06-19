@@ -105,9 +105,9 @@ public class NewUserActivity extends AppCompatActivity {
         params.put("email", email);
         params.put("password", password);
 
-        ActivityUtils.showProgressDialog(this, "Cadastrando Cambista");
-
-        PostCambistaRequest postCambistaRequest = new PostCambistaRequest(postCambistaCallback());
-        RequestQueueSingleton.getInstance(this).addToRequestQueue(postCambistaRequest.getRequest(params));
+//        ActivityUtils.showProgressDialog(this, "Cadastrando Cambista");
+//
+//        PostCambistaRequest postCambistaRequest = new PostCambistaRequest(postCambistaCallback());
+//        RequestQueueSingleton.getInstance(this).addToRequestQueue(postCambistaRequest.getRequest(params));
     }
 }
