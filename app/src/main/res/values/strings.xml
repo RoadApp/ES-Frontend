@@ -15,5 +15,10 @@
     <string name="meus_veiculos">Meus Veículos</string>
     <string name="app_presentation">O Road é o app de auxílio para troca de peças, verificação de quilometragem e de serviços de seus veículos. Com ele, você não necessita mais se preocupar em lembrar de datas de trocas de peças nem anotar lembretes de renovação de CNH. Road é seu computador de bordo. Road auxilia você na estrada.</string>
     <string name="settings">Configurações</string>
+    <string name="formNewUser_fullName">Full Name</string>
+    <string name="formNewUser_email">Email</string>
+    <string name="formNewUser_password">Password</string>
+    <string name="formNewUser_confirmPassword">Confirm Password</string>
+    <string name="button_formNewUser_Submit">Submit</string>
 
 </resources>
