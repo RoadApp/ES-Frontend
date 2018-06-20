@@ -11,8 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ufcg.es.es_front.R;
+import edu.ufcg.es.es_front.httpClient.RequestQueueSingleton;
+import edu.ufcg.es.es_front.httpClient.callbacks.OnPostUserCallback;
+import edu.ufcg.es.es_front.httpClient.requests.PostUserRequest;
+import edu.ufcg.es.es_front.utils.ActivityUtils;
 
-public class NewUserActivity extends AppCompatActivity {
+public class RegisterUserActivity extends AppCompatActivity {
 
     private AutoCompleteTextView edtFullName, edtEmail, edtPassword, edtConfirmPassword;
 
@@ -25,9 +29,11 @@ public class NewUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_user);
+        setContentView(R.layout.activity_register_user);
 
         init();
+
+        this.submitButton.setOnClickListener(this.submitOnClickListener());
     }
 
     private void init(){
@@ -46,6 +52,8 @@ public class NewUserActivity extends AppCompatActivity {
                 email = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
                 confirmPassword = edtConfirmPassword.getText().toString();
+
+                validateFields();
 
 
             }
@@ -74,7 +82,7 @@ public class NewUserActivity extends AppCompatActivity {
             error = true;
 
         }else if(!password.equals(confirmPassword)){
-            this.edtConfirmPassword.setError("As senhas não conferem!");
+            this.edtConfirmPassword.setError("Passwords are different!");
             focusView = this.edtConfirmPassword;
             error = true;
         }
@@ -105,9 +113,26 @@ public class NewUserActivity extends AppCompatActivity {
         params.put("email", email);
         params.put("password", password);
 
-//        ActivityUtils.showProgressDialog(this, "Cadastrando Cambista");
-//
-//        PostCambistaRequest postCambistaRequest = new PostCambistaRequest(postCambistaCallback());
-//        RequestQueueSingleton.getInstance(this).addToRequestQueue(postCambistaRequest.getRequest(params));
+        ActivityUtils.showProgressDialog(this, "Registering User");
+
+        PostUserRequest postUserRequest = new PostUserRequest(postUserCallback());
+        RequestQueueSingleton.getInstance(this).addToRequestQueue(postUserRequest.getRequest(params));
+    }
+
+    private OnPostUserCallback postUserCallback(){
+        return new OnPostUserCallback() {
+            @Override
+            public void onPostUserCallbackSucess() {
+                ActivityUtils.cancelProgressDialog();
+                ActivityUtils.showToast(getApplicationContext(), "User Registered;");
+                finish();
+            }
+
+            @Override
+            public void onPostUserCallbackError(String message) {
+                ActivityUtils.cancelProgressDialog();
+                ActivityUtils.showToast(getApplicationContext(), "Error on user register. Try again");
+            }
+        };
     }
 }

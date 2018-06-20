@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity{
 
     private SignInButton btnGoogleSignIn;
     private LoginButton fbLoginButton;
-    private Button logOutButton;
+    private Button logOutButton, registerButton;
 
 
     @Override
@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity{
         this.btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn);
         this.fbLoginButton = findViewById(R.id.btn_fb_login);
         this.logOutButton = findViewById(R.id.btnSignOut);
+        this.registerButton = findViewById(R.id.login_btnRegister);
 
 
         this.btnGoogleSignIn.setOnClickListener(googleSingIn());
@@ -98,6 +99,7 @@ public class LoginActivity extends AppCompatActivity{
         LoginButton fbLoginButton = findViewById(R.id.btn_fb_login);
         fbLoginButton.setReadPermissions("email", "public_profile");
         fbLoginButton.registerCallback(mCallbackManager, facebookCallback());
+        this.registerButton.setOnClickListener(registerOnclick());
     }
 
     private void showProgressBar(boolean exibir) {
@@ -225,6 +227,16 @@ public class LoginActivity extends AppCompatActivity{
                         }
                     }
                 });
+    }
+
+    private OnClickListener registerOnclick(){
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerUser = new Intent(getApplicationContext(), RegisterUserActivity.class);
+                startActivity(registerUser);
+            }
+        };
     }
 
     private void signOut() {

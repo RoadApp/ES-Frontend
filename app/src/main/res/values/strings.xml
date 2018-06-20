@@ -20,5 +20,6 @@
     <string name="formNewUser_password">Password</string>
     <string name="formNewUser_confirmPassword">Confirm Password</string>
     <string name="button_formNewUser_Submit">Submit</string>
+    <string name="login_btnRegister">Register</string>
 
 </resources>
