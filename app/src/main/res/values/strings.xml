@@ -25,5 +25,6 @@
     <string name="edt_formLogin_Email">Email</string>
     <string name="edt_formLogin_password">Password</string>
     <string name="login_btnLogin">Login</string>
+    <string name="action_logout">Logout</string>
 
 </resources>

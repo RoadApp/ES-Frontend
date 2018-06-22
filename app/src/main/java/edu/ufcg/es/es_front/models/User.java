@@ -6,15 +6,15 @@ import java.util.Date;
 public class User {
 
     private Date created_at;
+    private String _id;
     private String fullName;
-    private String firebaseUid;
     private ArrayList<Car> cars;
 
-    public User(Date created_at, String fullName, String firebaseUid, ArrayList<Car> cars) {
+    public User(Date created_at, String fullName, String _id, ArrayList<Car> cars) {
         this.created_at = created_at;
         this.fullName = fullName;
-        this.firebaseUid = firebaseUid;
         this.cars = cars;
+        this._id = _id;
     }
 
     public Date getCreated_at() {
@@ -30,8 +30,8 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getFirebaseUid() {
-        return firebaseUid;
+    public String get_id() {
+        return _id;
     }
 
 

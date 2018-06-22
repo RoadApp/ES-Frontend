@@ -12,6 +12,8 @@ public class AppConfig {
 
     private final String login = "/login";
 
+    private final String logout = "/logout";
+
     public static AppConfig getInstance(){
         if(instance == null){
             instance = new AppConfig();
@@ -28,5 +30,10 @@ public class AppConfig {
     public String login(){
         return host +
                 login;
+    }
+
+    public String logout(){
+        return host +
+                logout;
     }
 }

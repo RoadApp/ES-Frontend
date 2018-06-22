@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
 
-//        updateUI(currentUser);
+        updateUI();
     }
 
     @Override
@@ -44,14 +44,12 @@ public class LoginActivity extends AppCompatActivity{
 
         this.init();
 
-        this.updateUI();
-
     }
 
     private void init() {
 
         this.edtEmail = findViewById(R.id.edt_formLogin_Email);
-        this.edtPassword = findViewById(R.id.edt_formNewUser_password);
+        this.edtPassword = findViewById(R.id.edt_formLogin_password);
         this.loginButton = findViewById(R.id.login_btnLogin);
         this.registerButton = findViewById(R.id.login_btnRegister);
 

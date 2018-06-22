@@ -15,7 +15,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import edu.ufcg.es.es_front.R;
+import edu.ufcg.es.es_front.controllers.UserController;
+import edu.ufcg.es.es_front.httpClient.RequestQueueSingleton;
+import edu.ufcg.es.es_front.httpClient.callbacks.OnPostLogoutCallback;
+import edu.ufcg.es.es_front.httpClient.requests.PostLogoutRequest;
+import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_about) {
             Intent aboutIntent = new Intent(this, AboutActivity.class);
             startActivity(aboutIntent);
+        } else if(id == R.id.action_logout) {
+            this.logout();
         }
 
         return super.onOptionsItemSelected(item);
@@ -123,6 +133,34 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent createVehicleIntent = new Intent(context, CreateVehicleActivity.class);
                 startActivity(createVehicleIntent);
+            }
+        };
+    }
+
+    private void logout() {
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id", UserController.getUserLogged().get_id());
+
+        ActivityUtils.showProgressDialog(this, "Loging out");
+
+        PostLogoutRequest postLogoutRequest = new PostLogoutRequest(postLogoutCallback());
+        RequestQueueSingleton.getInstance(this).addToRequestQueue(postLogoutRequest.getRequest(params));
+    }
+
+    private OnPostLogoutCallback postLogoutCallback(){
+        return new OnPostLogoutCallback() {
+            @Override
+            public void onPostLogoutCallbackSucess() {
+                ActivityUtils.cancelProgressDialog();
+                UserController.logout();
+                finish();
+            }
+
+            @Override
+            public void onPostLogoutCallbackError(String message) {
+                ActivityUtils.cancelProgressDialog();
+                ActivityUtils.showToast(getApplicationContext(), "Error on logout");
             }
         };
     }
