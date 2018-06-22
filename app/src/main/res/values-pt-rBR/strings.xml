@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_user_home">Inicio</string>
+    <string name="nav_header_title">Nome Usuario</string>
+    <string name="action_about">Sobre o Road</string>
+    <string name="login_welcome">Bem vindo ao</string>
+    <string name="login_doLogin">Faça o login antes de prosseguir:</string>
+    <string name="signout">Sair</string>
+    <string name="app_presentation">Road é o app de auxílio para manutenção, verificação da quilometragem e dos serviços de seus veículos. Com ele, você não necessita mais se preocupar em lembrar de datas de trocas de peças nem anotar lembretes de renovação de CNH. Road é seu computador de bordo. Road auxilia você na estrada.</string>
+    <string name="settings">Configurações</string>
+    <string name="button_formNewUser_Submit">Enviar</string>
+    <string name="meus_veiculos">Meus Veículos</string>
+    <string name="login_btnRegister">Registrar</string>
+    <string name="nav_header_subtitle">usuario@email.com</string>
+    <string name="formNewUser_fullName">Nome completo</string>
+    <string name="formNewUser_email">E-mail</string>
+    <string name="formNewUser_password">Senha</string>
+    <string name="formNewUser_confirmPassword">Confirmar senha</string>
+</resources>

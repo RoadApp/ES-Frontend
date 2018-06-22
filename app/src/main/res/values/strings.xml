@@ -1,25 +1,26 @@
 <resources>
-    <string name="app_name">Road</string>
+    <string name="app_name" translatable="false">Road</string>
     <string name="title_activity_user_home">Home</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Nome Usuario</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title">Username</string>
     <string name="nav_header_subtitle">user@email.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_about">Sobre o Road</string>
-    <string name="login_welcome">Bem vindo ao</string>
-    <string name="login_doLogin">Faça o login para continuar.</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_about">About Road</string>
+    <string name="login_welcome">Welcome to</string>
+    <string name="login_doLogin">Please login before proceed: </string>
     <string name="signout">Signout</string>
-    <string name="facebook_app_id">659197504422519</string>
-    <string name="fb_login_protocol_scheme">fb659197504422519</string>
-    <string name="meus_veiculos">Meus Veículos</string>
-    <string name="app_presentation">O Road é o app de auxílio para troca de peças, verificação de quilometragem e de serviços de seus veículos. Com ele, você não necessita mais se preocupar em lembrar de datas de trocas de peças nem anotar lembretes de renovação de CNH. Road é seu computador de bordo. Road auxilia você na estrada.</string>
-    <string name="settings">Configurações</string>
+    <string name="facebook_app_id" translatable="false">659197504422519</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb659197504422519</string>
+    <string name="meus_veiculos">My vehicles</string>
+    <string name="app_presentation">Road is the aid app for maintenance and verification of mileage and services of your vehicles. With it, you no longer have to worry about remembering maintenance dates or jotting down driver license renewal reminders. Road is your on-board computer. Road assists you on the road.</string>
+    <string name="settings">Settings</string>
     <string name="formNewUser_fullName">Full Name</string>
     <string name="formNewUser_email">Email</string>
     <string name="formNewUser_password">Password</string>
     <string name="formNewUser_confirmPassword">Confirm Password</string>
     <string name="button_formNewUser_Submit">Submit</string>
     <string name="login_btnRegister">Register</string>
+    <string name="version">ver 1.0.00</string>
 
 </resources>
