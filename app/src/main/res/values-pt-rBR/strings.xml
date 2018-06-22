@@ -11,9 +11,8 @@
     <string name="button_formNewUser_Submit">Enviar</string>
     <string name="meus_veiculos">Meus Veículos</string>
     <string name="login_btnRegister">Registrar</string>
-    <string name="nav_header_subtitle">usuario@email.com</string>
     <string name="formNewUser_fullName">Nome completo</string>
-    <string name="formNewUser_email">E-mail</string>
     <string name="formNewUser_password">Senha</string>
     <string name="formNewUser_confirmPassword">Confirmar senha</string>
+    <string name="app_name" translatable="false">Road</string>
 </resources>

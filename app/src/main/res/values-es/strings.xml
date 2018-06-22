@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Road</string>
+    <string name="login_welcome">Bienvenido ao</string>
+    <string name="settings">Ajustes</string>
+    <string name="formNewUser_confirmPassword">Confirmar seña</string>
+    <string name="login_doLogin">Es necessario entrar antes de proseguir</string>
+    <string name="title_activity_user_home">Inicio</string>
+    <string name="meus_veiculos">Mis Vehículos</string>
+    <string name="formNewUser_password">Seña</string>
+    <string name="action_about">Sobre el Road</string>
+    <string name="nav_header_title">Nombre usuario</string>
+    <string name="formNewUser_fullName">Nombre completo</string>
+    <string name="login_btnRegister">Registrar</string>
+    <string name="signout">Salir</string>
+    <string name="button_formNewUser_Submit">Confirmar</string>
+</resources>

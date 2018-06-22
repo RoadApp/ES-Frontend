@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">דֶרֶך</string>
+    <string name="login_welcome">ברוכים הבאים ל</string>
+    <string name="settings">תצורות</string>
+    <string name="title_activity_user_home">בית</string>
+    <string name="meus_veiculos">כלי הרכב שלי</string>
+    <string name="action_about">אודות Road</string>
+    <string name="formNewUser_confirmPassword">אישור סיסמה</string>
+    <string name="formNewUser_password">סִיסְמָה</string>
+    <string name="login_doLogin">כְּדֵי לְהִכָּנֵס לָאֲתָר, צָרִיךְ לְהָזִין שֵׁם מִשְׁתַּמֵּשׁ וְסִיסְמָה.</string>
+    <string name="nav_header_title">שם משתמש</string>
+</resources>
