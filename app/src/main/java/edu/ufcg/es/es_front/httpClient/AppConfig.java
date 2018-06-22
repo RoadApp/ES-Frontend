@@ -10,6 +10,8 @@ public class AppConfig {
 
     private final String user = "/user";
 
+    private final String login = "/login";
+
     public static AppConfig getInstance(){
         if(instance == null){
             instance = new AppConfig();
@@ -21,5 +23,10 @@ public class AppConfig {
     public String registerUser() {
         return host +
                 user;
+    }
+
+    public String login(){
+        return host +
+                login;
     }
 }

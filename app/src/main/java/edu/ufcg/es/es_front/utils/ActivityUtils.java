@@ -12,6 +12,8 @@ public class ActivityUtils {
 
     private static ProgressDialog progressDialog;
 
+    public static final String  EMPTY_ERROR = "This field can not be empty";
+
     public static void showProgressDialog(Activity activity, String message) {
 
         progressDialog = new ProgressDialog(activity);
@@ -35,4 +37,5 @@ public class ActivityUtils {
         toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 20);
         toast.show();
     }
+
 }

@@ -22,5 +22,8 @@
     <string name="button_formNewUser_Submit">Submit</string>
     <string name="login_btnRegister">Register</string>
     <string name="version" translatable="false">ver 1.0.00</string>
+    <string name="edt_formLogin_Email">Email</string>
+    <string name="edt_formLogin_password">Password</string>
+    <string name="login_btnLogin">Login</string>
 
 </resources>

@@ -24,8 +24,6 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     private Button submitButton;
 
-    private final String  EMPTY_ERROR = "This field can not be empty";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,12 +70,12 @@ public class RegisterUserActivity extends AppCompatActivity {
         View focusView = null;
 
         if(TextUtils.isEmpty(password)){
-            this.edtPassword.setError(EMPTY_ERROR);
+            this.edtPassword.setError(ActivityUtils.EMPTY_ERROR);
             focusView = this.edtPassword;
             error = true;
 
         }else if(TextUtils.isEmpty(confirmPassword)){
-            this.edtConfirmPassword.setError(EMPTY_ERROR);
+            this.edtConfirmPassword.setError(ActivityUtils.EMPTY_ERROR);
             focusView = this.edtConfirmPassword;
             error = true;
 
@@ -88,13 +86,13 @@ public class RegisterUserActivity extends AppCompatActivity {
         }
 
         if(TextUtils.isEmpty(fullName)){
-            this.edtFullName.setError(EMPTY_ERROR);
+            this.edtFullName.setError(ActivityUtils.EMPTY_ERROR);
             focusView = this.edtFullName;
             error = true;
         }
 
         if(TextUtils.isEmpty(email)){
-            this.edtEmail.setError(EMPTY_ERROR);
+            this.edtEmail.setError(ActivityUtils.EMPTY_ERROR);
             focusView = this.edtEmail;
             error = true;
         }
