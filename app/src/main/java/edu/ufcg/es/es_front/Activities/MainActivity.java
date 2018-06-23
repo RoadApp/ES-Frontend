@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.nav_manage) {
-                    //redireciona pra tela de configuracoes
+                    Intent aboutIntent = new Intent(context, SettingsActivity.class);
+                    startActivity(aboutIntent);
 
                 } else if (id == R.id.about_option) {
                     Intent aboutIntent = new Intent(context, AboutActivity.class);
