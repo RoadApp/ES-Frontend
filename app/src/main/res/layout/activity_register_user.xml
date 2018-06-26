@@ -66,7 +66,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_formNewUser_Submit"
+        android:text="@string/button_submit"
         android:id="@+id/button_formNewUser_submit"/>
 
 

@@ -14,4 +14,6 @@
     <string name="login_btnRegister">Registrar</string>
     <string name="signout">Salir</string>
     <string name="button_formNewUser_Submit">Confirmar</string>
+    <string name="vehicle_name">Vehicle name</string>
+    <string name="vehicle_brand">Marca</string>
 </resources>

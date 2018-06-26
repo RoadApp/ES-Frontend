@@ -15,4 +15,6 @@
     <string name="formNewUser_password">Senha</string>
     <string name="formNewUser_confirmPassword">Confirmar senha</string>
     <string name="app_name" translatable="false">Road</string>
+    <string name="vehicle_name">Vehicle name</string>
+    <string name="vehicle_brand">Modelo</string>
 </resources>

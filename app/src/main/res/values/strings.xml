@@ -19,12 +19,19 @@
     <string name="formNewUser_email" translatable="false">Email</string>
     <string name="formNewUser_password">Password</string>
     <string name="formNewUser_confirmPassword">Confirm Password</string>
-    <string name="button_formNewUser_Submit">Submit</string>
+    <string name="button_submit">Submit</string>
     <string name="login_btnRegister">Register</string>
     <string name="version" translatable="false">ver 1.0.00</string>
     <string name="edt_formLogin_Email">Email</string>
     <string name="edt_formLogin_password">Password</string>
     <string name="login_btnLogin">Login</string>
     <string name="action_logout">Logout</string>
+    <string name="vehicle_model">Vehicle model</string>
+    <string name="vehicle_brand">Brand</string>
+    <string name="vehicle_plate">Plate (AAA-0000)</string>
+    <string name="vehicle_year">Year</string>
+    <string name="vehicle_odometer">Odometer</string>
+    <string name="vehicle_semanal_media">Semanal kms</string>
+    <string name="vehicle_expiration_month">Expiration month</string>
 
 </resources>

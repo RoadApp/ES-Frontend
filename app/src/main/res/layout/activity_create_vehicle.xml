@@ -9,12 +9,12 @@
     tools:context=".Activities.CreateVehicleActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/vehicle_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:inputType="textPersonName"
-        android:text="Nome do veículo"
+        android:text="@string/vehicle_model"
         android:textAlignment="center"/>
 
     <LinearLayout
@@ -24,57 +24,71 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/vehicle_brand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:inputType="textPersonName"
-            android:text="Marca"
+            android:text="@string/vehicle_brand"
             app:layout_constraintEnd_toStartOf="@+id/editText3"
             android:textAlignment="center"/>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/vehicle_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:inputType="number"
-            android:text="Ano"
+            android:text="@string/vehicle_year"
             android:textAlignment="center"/>
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/vehicle_odometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="number"
-        android:text="quilometragem"
+        android:text="@string/vehicle_odometer"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/vehicle_semanal_media"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="number"
-        android:text="media de quilometros semanais"
+        android:text="@string/vehicle_semanal_media"
         android:textAlignment="center"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/vehicle_plate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:ems="10"
+        android:textSize="17sp"
         android:inputType="date"
-        android:text="mes do venc. licenciamento"
+        android:text="@string/vehicle_plate"
         android:textAlignment="center"/>
 
-    <Button
+    <EditText
+        android:id="@+id/vehicle_expiration_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="confirmar" />
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:inputType="number"
+        android:text="@string/vehicle_expiration_month"
+        android:textAlignment="center"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_submit" />
 </LinearLayout>
