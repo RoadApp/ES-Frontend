@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import edu.ufcg.es.es_front.R;
 
-public class CreateVehicleActivity extends AppCompatActivity implements View.OnClickListener {
+public class CreateVehicleActivity extends AppCompatActivity {
 
     private ViewHolder mViewHolder = new ViewHolder();
 
@@ -17,6 +17,11 @@ public class CreateVehicleActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_vehicle);
+        init();
+
+    }
+
+    private void init() {
         this.mViewHolder.vehicleBrand = findViewById(R.id.vehicle_brand);
         this.mViewHolder.vehicleModel = findViewById(R.id.vehicle_model);
         this.mViewHolder.vehicleYear = findViewById(R.id.vehicle_year);
@@ -25,18 +30,21 @@ public class CreateVehicleActivity extends AppCompatActivity implements View.OnC
         this.mViewHolder.vehiclePlate = findViewById(R.id.vehicle_plate);
         this.mViewHolder.buttonSubmit = findViewById(R.id.button_submit);
         this.mViewHolder.vehicleExpirationMonth = findViewById(R.id.vehicle_expiration_month);
-        this.mViewHolder.buttonSubmit.setOnClickListener(this);
-
+        this.mViewHolder.buttonSubmit.setOnClickListener(this.submitOnClickListener());
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId()==R.id.button_submit) {
-        }
-    }
 
     private static class ViewHolder{
         EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
         Button buttonSubmit;
+    }
+
+    private View.OnClickListener submitOnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        };
     }
 }
