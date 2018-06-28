@@ -18,9 +18,9 @@ import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class RegisterUserActivity extends AppCompatActivity {
 
-    private AutoCompleteTextView edtFullName, edtEmail, edtPassword, edtConfirmPassword;
+    private AutoCompleteTextView edtFullName, edtEmail, edtPassword, edtConfirmPassword, edtCNHExpiration, edtBirthDate;
 
-    private String fullName, email, password, confirmPassword;
+    private String fullName, email, password, confirmPassword, cnhExpiration, birthDate;
 
     private Button submitButton;
 
@@ -39,6 +39,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         this.edtEmail = findViewById(R.id.edt_formNewUser_email);
         this.edtPassword = findViewById(R.id.edt_formNewUser_password);
         this.edtConfirmPassword = findViewById(R.id.edt_formNewUser_confirmPassword);
+        this.edtCNHExpiration = findViewById(R.id.edt_formNewUser_cnhExpiration);
+        this.edtBirthDate = findViewById(R.id.edt_formNewUser_birthDate);
         this.submitButton = findViewById(R.id.button_formNewUser_submit);
     }
 
@@ -50,6 +52,8 @@ public class RegisterUserActivity extends AppCompatActivity {
                 email = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
                 confirmPassword = edtConfirmPassword.getText().toString();
+                cnhExpiration = edtCNHExpiration.getText().toString();
+                birthDate = edtBirthDate.getText().toString();
 
                 validateFields();
 
@@ -110,6 +114,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         params.put("fullName", fullName);
         params.put("email", email);
         params.put("password", password);
+        params.put("birthDate", birthDate);
+        params.put("cnhExpiration", cnhExpiration);
 
         ActivityUtils.showProgressDialog(this, "Registering User");
 

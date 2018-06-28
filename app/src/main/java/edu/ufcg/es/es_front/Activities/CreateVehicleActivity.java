@@ -33,9 +33,9 @@ public class CreateVehicleActivity extends AppCompatActivity {
         this.mViewHolder.buttonSubmit.setOnClickListener(this.submitOnClickListener());
     }
 
-
     private static class ViewHolder{
         EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
+        String brand, model, year, odometer, media, plate, expiration;
         Button buttonSubmit;
     }
 
@@ -43,6 +43,14 @@ public class CreateVehicleActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                        mViewHolder.brand = mViewHolder.vehicleBrand.getText().toString();
+                        mViewHolder.model = mViewHolder.vehicleModel.getText().toString();
+                        mViewHolder.year = mViewHolder.vehicleYear.getText().toString();
+                        mViewHolder.odometer = mViewHolder.vehicleOdometer.getText().toString();
+                        mViewHolder.media = mViewHolder.vehicleSemanalMedia.getText().toString();
+                        mViewHolder.plate = mViewHolder.vehiclePlate.getText().toString();
+                        mViewHolder.expiration = mViewHolder.vehicleExpirationMonth.getText().toString();
+
 
             }
         };

@@ -33,5 +33,7 @@
     <string name="vehicle_odometer">Odometer</string>
     <string name="vehicle_semanal_media">Semanal kms</string>
     <string name="vehicle_expiration_month">Expiration month</string>
+    <string name="cnhExpiration">Vencimento de sua CNH</string>
+    <string name="birthDate">Data de nascimento</string>
 
 </resources>
