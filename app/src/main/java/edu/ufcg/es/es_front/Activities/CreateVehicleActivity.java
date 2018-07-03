@@ -2,16 +2,23 @@ package edu.ufcg.es.es_front.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import edu.ufcg.es.es_front.R;
+import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class CreateVehicleActivity extends AppCompatActivity {
 
-    private ViewHolder mViewHolder = new ViewHolder();
+    private EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
+    private String brand, model, year, odometer, media, plate, expiration;
+    private Button buttonSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,37 +29,105 @@ public class CreateVehicleActivity extends AppCompatActivity {
     }
 
     private void init() {
-        this.mViewHolder.vehicleBrand = findViewById(R.id.vehicle_brand);
-        this.mViewHolder.vehicleModel = findViewById(R.id.vehicle_model);
-        this.mViewHolder.vehicleYear = findViewById(R.id.vehicle_year);
-        this.mViewHolder.vehicleOdometer = findViewById(R.id.vehicle_odometer);
-        this.mViewHolder.vehicleSemanalMedia = findViewById(R.id.vehicle_semanal_media);
-        this.mViewHolder.vehiclePlate = findViewById(R.id.vehicle_plate);
-        this.mViewHolder.buttonSubmit = findViewById(R.id.button_submit);
-        this.mViewHolder.vehicleExpirationMonth = findViewById(R.id.vehicle_expiration_month);
-        this.mViewHolder.buttonSubmit.setOnClickListener(this.submitOnClickListener());
+        this.vehicleBrand = findViewById(R.id.vehicle_brand);
+        this.vehicleModel = findViewById(R.id.vehicle_model);
+        this.vehicleYear = findViewById(R.id.vehicle_year);
+        this.vehicleOdometer = findViewById(R.id.vehicle_odometer);
+        this.vehicleSemanalMedia = findViewById(R.id.vehicle_semanal_media);
+        this.vehiclePlate = findViewById(R.id.vehicle_plate);
+        this.buttonSubmit = findViewById(R.id.button_submit);
+        this.vehicleExpirationMonth = findViewById(R.id.vehicle_expiration_month);
+        this.buttonSubmit.setOnClickListener(this.submitOnClickListener());
     }
 
-    private static class ViewHolder{
-        EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
-        String brand, model, year, odometer, media, plate, expiration;
-        Button buttonSubmit;
-    }
+
+
+
 
     private View.OnClickListener submitOnClickListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                        mViewHolder.brand = mViewHolder.vehicleBrand.getText().toString();
-                        mViewHolder.model = mViewHolder.vehicleModel.getText().toString();
-                        mViewHolder.year = mViewHolder.vehicleYear.getText().toString();
-                        mViewHolder.odometer = mViewHolder.vehicleOdometer.getText().toString();
-                        mViewHolder.media = mViewHolder.vehicleSemanalMedia.getText().toString();
-                        mViewHolder.plate = mViewHolder.vehiclePlate.getText().toString();
-                        mViewHolder.expiration = mViewHolder.vehicleExpirationMonth.getText().toString();
-
-
+                brand = vehicleBrand.getText().toString();
+                model = vehicleModel.getText().toString();
+                year = vehicleYear.getText().toString();
+                odometer = vehicleOdometer.getText().toString();
+                media = vehicleSemanalMedia.getText().toString();
+                plate = vehiclePlate.getText().toString();
+                expiration = vehicleExpirationMonth.getText().toString();
             }
         };
+    }
+
+    private void validadeFields(){
+
+        //Reset errors
+        this.vehicleBrand.setError(null);
+        this.vehicleModel.setError(null);
+        this.vehicleYear.setError(null);
+        this.vehicleOdometer.setError(null);
+        this.vehicleSemanalMedia.setError(null);
+        this.vehiclePlate.setError(null);
+        this.vehicleExpirationMonth.setError(null);
+
+        boolean error = false;
+        View focusView = null;
+
+        if(TextUtils.isEmpty(brand)){
+            this.vehicleBrand.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleBrand;
+            error = true;
+        }
+        if(TextUtils.isEmpty(model)){
+            this.vehicleModel.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleModel;
+            error = true;
+
+        }
+        if(TextUtils.isEmpty(year)){
+            this.vehicleYear.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleYear;
+            error = true;
+        }
+        if(TextUtils.isEmpty(odometer)){
+            this.vehicleOdometer.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleOdometer;
+            error = true;
+        }
+
+        if(TextUtils.isEmpty(media)){
+            this.vehicleSemanalMedia.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleSemanalMedia;
+            error = true;
+        }
+        if(TextUtils.isEmpty(plate)){
+            this.vehiclePlate.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehiclePlate;
+            error = true;
+        }
+        if(TextUtils.isEmpty(expiration)){
+            this.vehicleExpirationMonth.setError(ActivityUtils.EMPTY_ERROR);
+            focusView = this.vehicleExpirationMonth;
+            error = true;
+        }
+
+
+        if(error){
+            focusView.requestFocus();
+        }else{
+            sendRegistration();
+        }
+
+    }
+
+    private void sendRegistration(){
+        Map<String, String> params = new HashMap<String, String>();
+//        params.put("email", email);
+//        params.put("password", password);
+
+        ActivityUtils.showProgressDialog(this, "Registering User");
+
+//        PostLoginRequest postLoginRequest = new PostLoginRequest(postLoginCallback());
+//        RequestQueueSingleton.getInstance(this).addToRequestQueue(postLoginRequest.getRequest(params));
     }
 }
