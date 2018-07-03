@@ -67,10 +67,17 @@
             android:textColor="@color/background_light"/>
 
     </android.support.design.widget.TextInputLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:weightSum="1.0">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight=".5"
         android:hint="@string/birthDate">
 
         <AutoCompleteTextView
@@ -86,6 +93,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight=".5"
         android:hint="@string/cnhExpiration">
     <AutoCompleteTextView
         android:id="@+id/edt_formNewUser_cnhExpiration"
@@ -95,6 +103,7 @@
         android:maxLength="8"
         android:textColor="@color/background_light"/>
 </android.support.design.widget.TextInputLayout>
+</LinearLayout>
 
     <Button
         android:layout_width="wrap_content"

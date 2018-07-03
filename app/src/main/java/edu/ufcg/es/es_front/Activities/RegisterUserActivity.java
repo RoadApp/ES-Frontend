@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +23,9 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     private AutoCompleteTextView edtFullName, edtEmail, edtPassword, edtConfirmPassword, edtCNHExpiration, edtBirthDate;
 
-    private String fullName, email, password, confirmPassword, cnhExpiration, birthDate;
+    private String fullName, email, password, confirmPassword;
+
+    private Date cnhExpiration, birthDate;;
 
     private Button submitButton;
 
@@ -48,12 +53,22 @@ public class RegisterUserActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String pattern = "MMddyyyy";
+                SimpleDateFormat simpleDate = new SimpleDateFormat(pattern);
                 fullName = edtFullName.getText().toString();
                 email = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
                 confirmPassword = edtConfirmPassword.getText().toString();
-                cnhExpiration = edtCNHExpiration.getText().toString();
-                birthDate = edtBirthDate.getText().toString();
+                try {
+                    cnhExpiration = simpleDate.parse(edtCNHExpiration.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    birthDate = simpleDate.parse(edtBirthDate.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 validateFields();
 
@@ -114,8 +129,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         params.put("fullName", fullName);
         params.put("email", email);
         params.put("password", password);
-        params.put("birthDate", birthDate);
-        params.put("cnhExpiration", cnhExpiration);
+        //params.put("birthDate", birthDate);
+        //params.put("cnhExpiration", cnhExpiration);
 
         ActivityUtils.showProgressDialog(this, "Registering User");
 
