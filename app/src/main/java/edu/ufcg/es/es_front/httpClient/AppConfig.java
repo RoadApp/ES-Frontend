@@ -14,6 +14,8 @@ public class AppConfig {
 
     private final String logout = "/logout";
 
+    private final String car = "/car";
+
     public static AppConfig getInstance(){
         if(instance == null){
             instance = new AppConfig();
@@ -35,5 +37,10 @@ public class AppConfig {
     public String logout(){
         return host +
                 logout;
+    }
+
+    public String car(){
+        return host +
+                car;
     }
 }

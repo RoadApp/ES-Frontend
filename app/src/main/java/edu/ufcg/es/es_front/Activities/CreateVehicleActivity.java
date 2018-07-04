@@ -1,5 +1,6 @@
 package edu.ufcg.es.es_front.Activities;
 
+import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ufcg.es.es_front.R;
+import edu.ufcg.es.es_front.controllers.UserController;
+import edu.ufcg.es.es_front.httpClient.RequestQueueSingleton;
+import edu.ufcg.es.es_front.httpClient.callbacks.OnPostCarCallback;
+import edu.ufcg.es.es_front.httpClient.requests.PostCarRequest;
+import edu.ufcg.es.es_front.models.Car;
 import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class CreateVehicleActivity extends AppCompatActivity {
@@ -122,12 +128,36 @@ public class CreateVehicleActivity extends AppCompatActivity {
 
     private void sendRegistration(){
         Map<String, String> params = new HashMap<String, String>();
-//        params.put("email", email);
-//        params.put("password", password);
+        Map<String, String> headers = new HashMap<>();
 
-        ActivityUtils.showProgressDialog(this, "Registering User");
+        params.put("brand", brand);
+        params.put("model", model);
+        params.put("year", year);
+        params.put("plate", plate);
+        params.put("odometer", odometer);
 
-//        PostLoginRequest postLoginRequest = new PostLoginRequest(postLoginCallback());
-//        RequestQueueSingleton.getInstance(this).addToRequestQueue(postLoginRequest.getRequest(params));
+        headers.put("authorization", "bearer " + UserController.getUserLogged().getToken());
+
+        ActivityUtils.showProgressDialog(this, "Registering Vehicle");
+
+        PostCarRequest postCarRequest = new PostCarRequest(postCarCallback());
+        RequestQueueSingleton.getInstance(this).addToRequestQueue(postCarRequest.getRequest(params, headers));
+
+
+    }
+
+    //Todo: fix
+    private OnPostCarCallback postCarCallback(){
+        return new OnPostCarCallback() {
+            @Override
+            public void onPostCarCallbackSucess(Car car) {
+                ActivityUtils.cancelProgressDialog();
+            }
+
+            @Override
+            public void onPostCarCallbackError(String message) {
+                ActivityUtils.cancelProgressDialog();
+            }
+        };
     }
 }

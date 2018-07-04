@@ -8,13 +8,15 @@ public class User {
     private Date created_at;
     private String _id;
     private String fullName;
+    private String token;
     private ArrayList<Car> cars;
 
-    public User(Date created_at, String fullName, String _id, ArrayList<Car> cars) {
+    public User(Date created_at, String fullName, String _id, String token, ArrayList<Car> cars) {
         this.created_at = created_at;
         this.fullName = fullName;
         this.cars = cars;
         this._id = _id;
+        this.token = token;
     }
 
     public Date getCreated_at() {
@@ -41,5 +43,13 @@ public class User {
 
     public void setCars(ArrayList<Car> cars) {
         this.cars = cars;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
