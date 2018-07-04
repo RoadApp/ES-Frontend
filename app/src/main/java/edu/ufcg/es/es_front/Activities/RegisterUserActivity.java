@@ -125,12 +125,15 @@ public class RegisterUserActivity extends AppCompatActivity {
     }
 
     private void sendRegistration(){
+
+        SimpleDateFormat format = new SimpleDateFormat("YYYY-mm-DD");
+
         Map<String, String> params = new HashMap<String, String>();
         params.put("fullName", fullName);
         params.put("email", email);
         params.put("password", password);
-        //params.put("birthDate", birthDate);
-        //params.put("cnhExpiration", cnhExpiration);
+        params.put("birthDate", format.format(birthDate));
+        params.put("cnhExpiration", format.format(cnhExpiration));
 
         ActivityUtils.showProgressDialog(this, "Registering User");
 
