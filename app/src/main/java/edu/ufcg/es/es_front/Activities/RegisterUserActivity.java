@@ -126,7 +126,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     private void sendRegistration(){
 
-        SimpleDateFormat format = new SimpleDateFormat("YYYY-mm-DD");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("fullName", fullName);

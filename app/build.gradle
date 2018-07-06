@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/'}
+        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.11.0, 0.99.99]'
@@ -19,7 +19,7 @@ android {
     defaultConfig {
         applicationId "edu.ufcg.es.es_front"
 
-        manifestPlaceholders = [onesignal_app_id: "c0bb7315-a84b-460c-a75a-a2d7daef4cf0",
+        manifestPlaceholders = [onesignal_app_id               : "c0bb7315-a84b-460c-a75a-a2d7daef4cf0",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: 'REMOTE']
 

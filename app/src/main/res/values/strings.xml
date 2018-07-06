@@ -35,5 +35,10 @@
     <string name="vehicle_expiration_month">Expiration month</string>
     <string name="cnhExpiration">Vencimento de sua CNH</string>
     <string name="birthDate">Data de nascimento</string>
+    <string name="actual_odometer">Quilometragem atual</string>
+    <string name="service_name">Nome do serviço</string>
+    <string name="service_price">Valor do serviço</string>
+    <string name="date">Data</string>
+    <string name="service_description">Descrição do serviço</string>
 
 </resources>
