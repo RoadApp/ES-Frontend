@@ -46,4 +46,12 @@ public class Service {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
