@@ -16,7 +16,10 @@ import java.util.Map;
 import edu.ufcg.es.es_front.R;
 import edu.ufcg.es.es_front.controllers.UserController;
 import edu.ufcg.es.es_front.httpClient.RequestQueueSingleton;
+import edu.ufcg.es.es_front.httpClient.callbacks.OnPostServiceCallback;
 import edu.ufcg.es.es_front.httpClient.requests.PostCarRequest;
+import edu.ufcg.es.es_front.httpClient.requests.PostServiceRequest;
+import edu.ufcg.es.es_front.models.Service;
 import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class CreateServiceActivity extends AppCompatActivity {
@@ -123,9 +126,25 @@ public class CreateServiceActivity extends AppCompatActivity {
 
         ActivityUtils.showProgressDialog(this, "Registering Service");
 
-        PostServiceRequest postServiceRequest = new PostCarRequest(postServiceCallback());
+        PostServiceRequest postServiceRequest = new PostServiceRequest(postServiceCallback());
         RequestQueueSingleton.getInstance(this).addToRequestQueue(postServiceRequest.getRequest(params, headers));
 
+    }
 
+    private OnPostServiceCallback postServiceCallback() {
+        return new OnPostServiceCallback() {
+            @Override
+            public void onPostServiceCallbackSucess(Service service) {
+                ActivityUtils.cancelProgressDialog();
+                //Todo: something
+
+            }
+
+            @Override
+            public void onPostServiceCallbackError(String message) {
+                ActivityUtils.cancelProgressDialog();
+                //Todo: something
+            }
+        };
     }
 }

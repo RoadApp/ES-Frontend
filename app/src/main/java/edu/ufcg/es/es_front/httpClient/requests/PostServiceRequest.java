@@ -6,48 +6,45 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import edu.ufcg.es.es_front.httpClient.AppConfig;
-import edu.ufcg.es.es_front.httpClient.callbacks.OnPostCarCallback;
-import edu.ufcg.es.es_front.models.Car;
+import edu.ufcg.es.es_front.httpClient.callbacks.OnPostServiceCallback;
+import edu.ufcg.es.es_front.models.Service;
 
-public class PostCarRequest {
+public class PostServiceRequest {
 
-    private final OnPostCarCallback callback;
+    private final OnPostServiceCallback callback;
 
-    public PostCarRequest(OnPostCarCallback callback) {
+    public PostServiceRequest(OnPostServiceCallback callback) {
         this.callback = callback;
     }
 
-    public Request getRequest(Map<String, String> params, final Map<String, String> CustomHeaders) {
-        String url = AppConfig.getInstance().car();
+    public Request getRequest(Map<String, String> params, final Map<String, String> customHeaders) {
+        String url = AppConfig.getInstance().service();
 
-        Request request = new JsonObjectRequest(url, new JSONObject(params), new Response.Listener<JSONObject>() {
+        final Request request = new JsonObjectRequest(url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Gson gson = new Gson();
-                Car car = gson.fromJson(gson.toJson(response), Car.class);
-                callback.onPostCarCallbackSucess(car);
+                Service service = gson.fromJson(gson.toJson(response), Service.class);
+                callback.onPostServiceCallbackSucess(service);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                callback.onPostCarCallbackError(error.getMessage());
+                callback.onPostServiceCallbackError(error.getMessage());
             }
         })
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = super.getHeaders();
-                headers.putAll(CustomHeaders);
-
+                headers.putAll(customHeaders);
                 return headers;
             }
         };

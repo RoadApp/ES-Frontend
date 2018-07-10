@@ -4,7 +4,7 @@ public class AppConfig {
 
     private static AppConfig instance;
 
-    private final String host = "http://192.168.1.9:3000";
+    private final String host = "http://192.168.2.11:3000";
 
     private final String all = "/all";
 
@@ -15,6 +15,8 @@ public class AppConfig {
     private final String logout = "/logout";
 
     private final String car = "/car";
+
+    private final String service = "/service";
 
     public static AppConfig getInstance(){
         if(instance == null){
@@ -42,5 +44,10 @@ public class AppConfig {
     public String car(){
         return host +
                 car;
+    }
+
+    public String service(){
+        return host +
+                service;
     }
 }
