@@ -40,5 +40,6 @@
     <string name="service_price">Valor do serviço</string>
     <string name="date">Data</string>
     <string name="service_description">Descrição do serviço</string>
+    <string name="title_activity_car_list">CarListActivity</string>
 
 </resources>

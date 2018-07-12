@@ -117,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(aboutIntent);
 
                 } else if (id == R.id.my_vehicles_option){
-
+                    Intent myVehiclesIntent = new Intent(context, CarListActivity.class);
+                    startActivity(myVehiclesIntent);
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

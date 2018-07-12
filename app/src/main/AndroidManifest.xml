@@ -50,7 +50,11 @@
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.CreateServiceActivity" />
         <activity android:name=".Activities.VehicleServicesActivity" />
-        <activity android:name=".Activities.VehicleActivity"></activity>
+        <activity
+            android:name=".Activities.CarListActivity"
+            android:label="@string/title_activity_car_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.VehicleActivity"/>
     </application>
 
 </manifest>
