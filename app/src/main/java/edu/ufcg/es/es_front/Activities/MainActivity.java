@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(aboutIntent);
 
                 } else if (id == R.id.my_vehicles_option){
-                    Intent myVehiclesIntent = new Intent();
+                    Intent myVehiclesIntent = new Intent(context, CarListActivity.class);
                     startActivity(myVehiclesIntent);
                 }
 
