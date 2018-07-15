@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.ufcg.es.es_front.R;
 import edu.ufcg.es.es_front.adapters.CarsListAdapter;
 import edu.ufcg.es.es_front.controllers.UserController;
 import edu.ufcg.es.es_front.httpClient.RequestQueueSingleton;
@@ -16,6 +15,7 @@ import edu.ufcg.es.es_front.httpClient.callbacks.OnGetCarsByUserCallback;
 import edu.ufcg.es.es_front.httpClient.requests.GetCarsByUserRequest;
 import edu.ufcg.es.es_front.models.Car;
 import edu.ufcg.es.es_front.utils.ActivityUtils;
+import edu.ufcg.es.es_front.R;
 
 public class CarListActivity extends AppCompatActivity {
 
