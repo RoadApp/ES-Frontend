@@ -35,7 +35,7 @@ public class ServiceListActivity extends AppCompatActivity {
         this.servicesListView = findViewById(R.id.listViewServices);
     }
 
-    private void getCars(){
+    private void getServices(){
         ActivityUtils.showProgressDialog(this, "Getting cars");
         Map<String, String> headers = new HashMap<>();
         headers.put("authorization", "bearer " + UserController.getUserLogged().getToken());
