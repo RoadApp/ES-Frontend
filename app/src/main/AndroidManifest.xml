@@ -54,7 +54,8 @@
             android:name=".Activities.CarListActivity"
             android:label="@string/title_activity_car_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.VehicleActivity"/>
+        <activity android:name=".Activities.VehicleActivity" />
+        <activity android:name=".Activities.ServiceListActivity"></activity>
     </application>
 
 </manifest>
