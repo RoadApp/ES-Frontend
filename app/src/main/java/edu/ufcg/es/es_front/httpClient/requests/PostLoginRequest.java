@@ -1,5 +1,7 @@
 package edu.ufcg.es.es_front.httpClient.requests;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
@@ -38,7 +40,10 @@ public class PostLoginRequest {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+//                error.printStackTrace();
+                Log.i("###########@", String.valueOf(error));
+                Log.i("############", String.valueOf(error.networkResponse));
+                Log.i("############@@", String.valueOf(error.networkResponse.statusCode));
                 callback.onPostUserCallbackERror(error.getMessage());
             }
         });

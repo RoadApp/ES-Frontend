@@ -1,6 +1,7 @@
 package edu.ufcg.es.es_front.Activities;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +24,9 @@ import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class LoginActivity extends AppCompatActivity{
 
-    private AutoCompleteTextView edtEmail, edtPassword;
+    private AutoCompleteTextView edtEmail;
+
+    private TextInputEditText edtPassword;
 
     private Button loginButton, registerButton;
 
