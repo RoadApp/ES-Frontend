@@ -4,7 +4,9 @@ import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,7 +24,7 @@ import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class CreateVehicleActivity extends AppCompatActivity {
 
-    private EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
+    private AutoCompleteTextView vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
     private String brand, model, year, odometer, media, plate, expiration;
     private Button buttonSubmit;
 
@@ -54,6 +56,7 @@ public class CreateVehicleActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("###################", "click");
                 brand = vehicleBrand.getText().toString();
                 model = vehicleModel.getText().toString();
                 year = vehicleYear.getText().toString();
@@ -61,6 +64,8 @@ public class CreateVehicleActivity extends AppCompatActivity {
                 media = vehicleSemanalMedia.getText().toString();
                 plate = vehiclePlate.getText().toString();
                 expiration = vehicleExpirationMonth.getText().toString();
+
+                validadeFields();
             }
         };
     }
@@ -157,6 +162,8 @@ public class CreateVehicleActivity extends AppCompatActivity {
             @Override
             public void onPostCarCallbackError(String message) {
                 ActivityUtils.cancelProgressDialog();
+                ActivityUtils.showToast(getApplicationContext(), "error on register vehicle");
+
             }
         };
     }
