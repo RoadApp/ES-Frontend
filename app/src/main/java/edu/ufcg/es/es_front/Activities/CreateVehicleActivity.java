@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import edu.ufcg.es.es_front.utils.ActivityUtils;
 
 public class CreateVehicleActivity extends AppCompatActivity {
 
-    private EditText vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
+    private AutoCompleteTextView vehicleBrand, vehicleModel, vehicleYear, vehicleOdometer, vehicleSemanalMedia, vehiclePlate, vehicleExpirationMonth;
     private String brand, model, year, odometer, media, plate, expiration;
     private Button buttonSubmit;
 
@@ -35,14 +36,14 @@ public class CreateVehicleActivity extends AppCompatActivity {
     }
 
     private void init() {
-        this.vehicleBrand = findViewById(R.id.vehicle_brand);
-        this.vehicleModel = findViewById(R.id.vehicle_model);
-        this.vehicleYear = findViewById(R.id.vehicle_year);
-        this.vehicleOdometer = findViewById(R.id.vehicle_odometer);
-        this.vehicleSemanalMedia = findViewById(R.id.vehicle_semanal_media);
-        this.vehiclePlate = findViewById(R.id.vehicle_plate);
+        this.vehicleBrand = findViewById(R.id.edt_formNewVehicle_brand);
+        this.vehicleModel = findViewById(R.id.edt_formNewVehicle_model);
+        this.vehicleYear = findViewById(R.id.edt_formNewVehicle_year);
+        this.vehicleOdometer = findViewById(R.id.edt_formNewVehicle_odometer);
+        this.vehicleSemanalMedia = findViewById(R.id.edt_formNewVehicle_semanal_media);
+        this.vehiclePlate = findViewById(R.id.edt_formNewVehicle_plate);
         this.buttonSubmit = findViewById(R.id.button_submit);
-        this.vehicleExpirationMonth = findViewById(R.id.vehicle_expiration_month);
+        this.vehicleExpirationMonth = findViewById(R.id.edt_formNewVehicle_expiration_month);
         this.buttonSubmit.setOnClickListener(this.submitOnClickListener());
     }
 

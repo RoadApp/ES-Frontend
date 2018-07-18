@@ -4,88 +4,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Activities.CreateVehicleActivity">
 
-    <EditText
-        android:id="@+id/vehicle_model"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="textPersonName"
-        android:text="@string/vehicle_model"
-        android:textAlignment="center"/>
+        android:hint="@string/vehicle_model">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_formNewVehicle_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"
+            android:textColor="@color/background_light"/>
+
+    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-        <EditText
-            android:id="@+id/vehicle_brand"
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="textPersonName"
-            android:text="@string/vehicle_brand"
-            app:layout_constraintEnd_toStartOf="@+id/editText3"
-            android:textAlignment="center"/>
+            android:hint="@string/vehicle_brand"
+            android:layout_weight=".5">
 
-        <EditText
-            android:id="@+id/vehicle_year"
-            android:layout_width="wrap_content"
+            <AutoCompleteTextView
+                android:id="@+id/edt_formNewVehicle_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:textColor="@color/background_light"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="number"
-            android:text="@string/vehicle_year"
-            android:textAlignment="center"/>
+            android:hint="@string/vehicle_year"
+            android:layout_weight=".5">
+
+            <AutoCompleteTextView
+                android:id="@+id/edt_formNewVehicle_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@color/background_light"/>
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/vehicle_odometer"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/vehicle_odometer"
-        android:textAlignment="center" />
+        android:hint="@string/vehicle_odometer">
 
-    <EditText
-        android:id="@+id/vehicle_semanal_media"
-        android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:id="@+id/edt_formNewVehicle_odometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@color/background_light"/>
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/vehicle_semanal_media"
-        android:textAlignment="center"/>
+        android:hint="@string/vehicle_semanal_media">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_formNewVehicle_semanal_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"
+            android:textColor="@color/background_light"/>
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-    <EditText
-        android:id="@+id/vehicle_plate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textSize="17sp"
-        android:inputType="date"
-        android:text="@string/vehicle_plate"
-        android:textAlignment="center"/>
+        android:gravity="center"
+        android:weightSum="1">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/vehicle_plate"
+            android:layout_weight=".5">
 
-    <EditText
-        android:id="@+id/vehicle_expiration_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textSize="16sp"
-        android:inputType="number"
-        android:text="@string/vehicle_expiration_month"
-        android:textAlignment="center"/>
+            <AutoCompleteTextView
+                android:id="@+id/edt_formNewVehicle_plate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:maxLines="1"
+                android:textColor="@color/background_light"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/vehicle_expiration_month"
+            android:layout_weight=".5">
+
+            <AutoCompleteTextView
+                android:id="@+id/edt_formNewVehicle_expiration_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/background_light"/>
+
+        </android.support.design.widget.TextInputLayout>
+
     </LinearLayout>
     <Button
         android:id="@+id/button_submit"
