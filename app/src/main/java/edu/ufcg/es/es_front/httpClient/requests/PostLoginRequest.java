@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Map;
@@ -26,16 +27,30 @@ public class PostLoginRequest {
         this.callback = callback;
     }
 
+    private User parseUser(JSONObject response) throws JSONException {
+
+        String _id = response.getString("_id");
+        String fullName = response.getString("fullName");
+        String email = response.getString("email");
+        String token = response.getString("token");
+
+        return new User(_id, fullName, email, token);
+    }
+
     public Request getRequest(Map<String, String> params){
         String url = AppConfig.getInstance().login();
 
         final Request request = new JsonObjectRequest(url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d("@@@@USER", response.toString());
+                try {
+                    User user = parseUser(response);
+                    callback.onPostLoginCallbackSucess(user);
+                } catch (JSONException e) {
+                    callback.onPostUserCallbackERror(e.getMessage());
+                }
 
-                Gson gson = new Gson();
-                User user = gson.fromJson(gson.toJson(response), User.class);
-                callback.onPostLoginCallbackSucess(user);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -43,7 +58,7 @@ public class PostLoginRequest {
 //                error.printStackTrace();
                 Log.i("###########@", String.valueOf(error));
                 Log.i("############", String.valueOf(error.networkResponse));
-                Log.i("############@@", String.valueOf(error.networkResponse.statusCode));
+//                Log.i("############@@", String.valueOf(error.networkResponse.statusCode));
                 callback.onPostUserCallbackERror(error.getMessage());
             }
         });
@@ -61,7 +76,9 @@ public class PostLoginRequest {
 
             @Override
             public void retry(VolleyError error) throws VolleyError {
-
+                if(error.networkResponse != null && (error.networkResponse.statusCode == 401)){
+                    throw error;
+                }
             }
         });
 

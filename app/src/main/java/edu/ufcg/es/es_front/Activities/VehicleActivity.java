@@ -5,29 +5,33 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import edu.ufcg.es.es_front.R;
+import edu.ufcg.es.es_front.models.Car;
 
 public class VehicleActivity extends AppCompatActivity {
 
     private FloatingActionButton floatingActionButton;
     private Context context;
+    private Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle);
-        this.setListeners();
         this.init();
+
+        this.car = (Car) getIntent().getSerializableExtra("car");
+
+        Log.d("@@", car.toString());
     }
 
     private void init(){
-        this.floatingActionButton = findViewById(R.id.fab);
         this.context = this.getApplicationContext();
-    }
+        this.floatingActionButton = findViewById(R.id.fab_newVehicleService);
 
-    private void setListeners() {
         this.floatingActionButton.setOnClickListener(this.floatActionButtonClickListener());
     }
 

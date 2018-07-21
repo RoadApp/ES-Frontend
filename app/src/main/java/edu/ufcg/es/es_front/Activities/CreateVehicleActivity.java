@@ -1,15 +1,11 @@
 package edu.ufcg.es.es_front.Activities;
 
-import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +52,6 @@ public class CreateVehicleActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("###################", "click");
                 brand = vehicleBrand.getText().toString();
                 model = vehicleModel.getText().toString();
                 year = vehicleYear.getText().toString();
@@ -141,7 +136,7 @@ public class CreateVehicleActivity extends AppCompatActivity {
         params.put("plate", plate);
         params.put("odometer", odometer);
 
-        headers.put("authorization", "bearer " + UserController.getUserLogged().getToken());
+        headers.put("Authorization","bearer " + UserController.getUserLogged().getToken());
 
         ActivityUtils.showProgressDialog(this, "Registering Vehicle");
 
@@ -157,6 +152,8 @@ public class CreateVehicleActivity extends AppCompatActivity {
             @Override
             public void onPostCarCallbackSucess(Car car) {
                 ActivityUtils.cancelProgressDialog();
+                ActivityUtils.showToast(getApplicationContext(), "Car Sucessfull Registered!");
+                finish();
             }
 
             @Override

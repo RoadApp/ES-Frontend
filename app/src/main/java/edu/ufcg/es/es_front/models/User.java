@@ -5,24 +5,25 @@ import java.util.Date;
 
 public class User {
 
-    private Date created_at;
     private String _id;
     private String fullName;
+    private String email;
     private String token;
-    private ArrayList<Car> cars;
 
-    public User(Date created_at, String fullName, String _id, String token, ArrayList<Car> cars) {
-        this.created_at = created_at;
-        this.fullName = fullName;
-        this.cars = cars;
+    public User(String _id, String fullName, String email, String token) {
         this._id = _id;
+        this.fullName = fullName;
+        this.email = email;
         this.token = token;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public String get_id() {
+        return _id;
     }
 
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getFullName() {
         return fullName;
@@ -32,17 +33,12 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String get_id() {
-        return _id;
+    public String getEmail() {
+        return email;
     }
 
-
-    public ArrayList<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(ArrayList<Car> cars) {
-        this.cars = cars;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getToken() {
@@ -51,5 +47,15 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "_id='" + _id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", token='" + token + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package edu.ufcg.es.es_front.httpClient.requests;
 
+import android.util.Log;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -9,6 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -26,6 +29,8 @@ public class PostCarRequest {
         this.callback = callback;
     }
 
+
+
     public Request getRequest(Map<String, String> params, final Map<String, String> CustomHeaders) {
         String url = AppConfig.getInstance().car();
 
@@ -39,13 +44,15 @@ public class PostCarRequest {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("@@", error.toString());
                 callback.onPostCarCallbackError(error.getMessage());
             }
         })
         {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = super.getHeaders();
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=UTF-8");
                 headers.putAll(CustomHeaders);
 
                 return headers;
@@ -65,7 +72,9 @@ public class PostCarRequest {
 
             @Override
             public void retry(VolleyError error) throws VolleyError {
-
+                if(error.networkResponse != null && (error.networkResponse.statusCode == 401)){
+                    throw error;
+                }
             }
         });
         return request;

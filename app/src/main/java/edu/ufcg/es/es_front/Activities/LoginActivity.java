@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
@@ -64,7 +65,7 @@ public class LoginActivity extends AppCompatActivity{
 
     private void updateUI(){
         if(UserController.getUserLogged() != null) {
-            Intent main = new Intent(getApplicationContext(), MainActivity.class);
+            Intent main = new Intent(getApplicationContext(), CarListActivity.class);
 
             startActivity(main);
         }
@@ -142,6 +143,7 @@ public class LoginActivity extends AppCompatActivity{
         return new OnPostLoginCallback() {
             @Override
             public void onPostLoginCallbackSucess(User response) {
+                Log.d("@@@@USER", response.toString());
                 ActivityUtils.cancelProgressDialog();
                 UserController.setUserLogged(response);
                 updateUI();

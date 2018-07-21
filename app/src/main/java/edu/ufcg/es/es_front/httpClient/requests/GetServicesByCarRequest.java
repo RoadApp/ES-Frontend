@@ -62,7 +62,9 @@ public class GetServicesByCarRequest {
 
             @Override
             public void retry(VolleyError error) throws VolleyError {
-
+                if(error.networkResponse != null && (error.networkResponse.statusCode == 401)){
+                    throw error;
+                }
             }
         });
         return request;

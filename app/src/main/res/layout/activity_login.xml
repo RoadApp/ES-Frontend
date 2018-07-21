@@ -29,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:textColor="@color/background_light" />
+                android:textColor="@color/background_light"
+                android:text="admin@email.com"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -44,7 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:text="eutenhoumviolaorosa"/>
 
         </android.support.design.widget.TextInputLayout>
 
