@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 
 import edu.ufcg.es.es_front.R;
-import edu.ufcg.es.es_front.models.Car;
 import edu.ufcg.es.es_front.models.Service;
 
 public class ServiceActivity extends AppCompatActivity {

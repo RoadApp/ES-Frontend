@@ -20,6 +20,7 @@ import edu.ufcg.es.es_front.R;
 public class ServiceListActivity extends AppCompatActivity {
 
     private ListView servicesListView;
+    private ServicesListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class ServiceListActivity extends AppCompatActivity {
     private void getServices(){
         ActivityUtils.showProgressDialog(this, "Getting cars");
         Map<String, String> headers = new HashMap<>();
-        headers.put("authorization", "bearer " + UserController.getUserLogged().getToken());
+        headers.put("Authorization", "bearer " + UserController.getUserLogged().getToken());
         GetServicesByCarRequest getServicesByCarRequest = new GetServicesByCarRequest(getServicesByCarCallback());
         RequestQueueSingleton.getInstance(this).addToRequestQueue(getServicesByCarRequest.getRequest(headers));
     }
@@ -47,7 +48,7 @@ public class ServiceListActivity extends AppCompatActivity {
         return new OnGetServicesByCarCallback() {
             @Override
             public void onGetServicesByCarCallbackSucess(ArrayList<Service> response) {
-                ServicesListAdapter adapter = new ServicesListAdapter(response, ServiceListActivity.this);
+                adapter = new ServicesListAdapter(response, ServiceListActivity.this);
                 servicesListView.setAdapter(adapter);
                 ActivityUtils.cancelProgressDialog();
             }
