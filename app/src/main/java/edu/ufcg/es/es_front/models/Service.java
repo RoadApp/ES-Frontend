@@ -4,15 +4,25 @@ import java.util.Date;
 
 public class Service {
 
-    private String name, price, actualOdometer, description;
+
+    private String _id, name, price, actualOdometer, description;
     private Date date;
 
-    public Service(String name, String price, Date date, String actualOdometer, String description) {
+    public Service(String _id, String name, String price, Date date, String actualOdometer, String description) {
+        this._id = _id;
         this.name = name;
         this.price = price;
         this.date = date;
         this.actualOdometer = actualOdometer;
         this.description = description;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -53,5 +63,16 @@ public class Service {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", actualOdometer='" + actualOdometer + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
