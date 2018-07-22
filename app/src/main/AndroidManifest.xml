@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".Activities.AboutActivity" />
         <activity android:name=".Activities.CreateVehicleActivity" />
         <activity android:name=".Activities.RegisterUserActivity" />
@@ -30,10 +32,9 @@
         <activity android:name=".Activities.CreateServiceActivity" />
         <activity
             android:name=".Activities.CarListActivity"
-            android:label="@string/title_activity_car_list" />
+            android:label="@string/title_activity_car_list"/>
         <activity android:name=".Activities.VehicleActivity" />
-        <activity android:name=".Activities.ServiceListActivity" />
-        <activity android:name=".Activities.ServiceActivity"></activity>
+        <activity android:name=".Activities.ServiceListActivity"></activity>
     </application>
 
 </manifest>

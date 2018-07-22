@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin"
-    android:layout_gravity="center_vertical"
+
     android:gravity="center">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/service_name">
+        android:hint="@string/service_name"
+        android:textColorHint="@color/white">
 
         <AutoCompleteTextView
             android:id="@+id/edt_formNewService_name"
@@ -32,7 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:hint="@string/service_price">
+            android:hint="@string/service_price"
+            android:textColorHint="@color/white">
 
             <AutoCompleteTextView
                 android:id="@+id/edt_formNewService_price"
@@ -48,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:hint="@string/date">
+            android:hint="@string/date"
+            android:textColorHint="@color/white">
             <AutoCompleteTextView
                 android:id="@+id/edt_formNewService_date"
                 android:layout_width="match_parent"
@@ -63,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/actual_odometer"
-        android:textColor="@color/background_light">
+        android:textColorHint="@color/white">
 
         <AutoCompleteTextView
             android:id="@+id/edt_formNewService_actualOdometer"
@@ -78,7 +81,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/service_description">
+        android:hint="@string/service_description"
+        android:textColorHint="@color/white">
 
         <AutoCompleteTextView
             android:id="@+id/edt_formNewService_description"
