@@ -7,6 +7,13 @@
     android:background="@color/colorPrimary"
     android:id="@+id/cardService">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_manage"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

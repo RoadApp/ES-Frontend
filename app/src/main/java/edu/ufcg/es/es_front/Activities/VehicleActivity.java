@@ -31,7 +31,7 @@ public class VehicleActivity extends AppCompatActivity {
     private Context context;
     private Car car;
 
-    private TextView tvCarModel, tvCarPlate;
+    private TextView tvCarModel, tvCarPlate, tvTotalCost;
 
     private ListView servicesListView;
     private ServicesListAdapter adapter;
@@ -43,10 +43,10 @@ public class VehicleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_vehicle);
         this.car = (Car) getIntent().getSerializableExtra("car");
 
-        this.init();
-        this.getServices();
-
         Log.d("@@", car.toString());
+
+        this.init();
+
     }
 
     private void init(){
@@ -54,6 +54,7 @@ public class VehicleActivity extends AppCompatActivity {
         this.floatingActionButton = findViewById(R.id.fab_newVehicleService);
         this.tvCarModel = findViewById(R.id.carModelDetail);
         this.tvCarPlate = findViewById(R.id.carPlateDetail);
+        this.tvTotalCost = findViewById(R.id.TVTotalServices);
 
         this.tvCarModel.setText(this.car.getModel());
         this.tvCarPlate.setText(this.car.getPlate());
@@ -74,12 +75,18 @@ public class VehicleActivity extends AppCompatActivity {
         };
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.getServices();
+    }
+
     private void getServices(){
         ActivityUtils.showProgressDialog(this, "Getting services");
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", "bearer " + UserController.getUserLogged().getToken());
         GetServicesByCarRequest getServicesByCarRequest = new GetServicesByCarRequest(getServicesByCarCallback());
-        RequestQueueSingleton.getInstance(this).addToRequestQueue(getServicesByCarRequest.getRequest(headers));
+        RequestQueueSingleton.getInstance(this).addToRequestQueue(getServicesByCarRequest.getRequest(headers, car.get_id()));
     }
 
     private OnGetServicesByCarCallback getServicesByCarCallback(){
@@ -89,6 +96,7 @@ public class VehicleActivity extends AppCompatActivity {
                 adapter = new ServicesListAdapter(response, VehicleActivity.this);
                 servicesListView.setAdapter(adapter);
                 ActivityUtils.cancelProgressDialog();
+                tvTotalCost.setText("TOTAL: $" + adapter.getTotalCost());
 
             }
 

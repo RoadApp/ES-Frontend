@@ -50,7 +50,6 @@ public class GetCarsByUserRequest {
         final GsonReflectionRequest request = new GsonReflectionRequest(url, type, headers, new Response.Listener<JsonArray>() {
             @Override
             public void onResponse(JsonArray response) {
-                Log.d("@@@", response.toString());
                 Gson gson = new Gson();
                     ArrayList<Car> carList = new ArrayList<>();
                     for (int i = 0; i < response.size(); i++) {

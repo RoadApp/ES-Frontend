@@ -21,8 +21,6 @@ public class ServiceActivity extends AppCompatActivity {
         this.init();
 
         this.service = (Service) getIntent().getSerializableExtra("service");
-
-        Log.d("@@", service.toString());
     }
 
     private void init(){

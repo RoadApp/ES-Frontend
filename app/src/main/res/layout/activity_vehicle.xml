@@ -7,39 +7,30 @@
     tools:context=".Activities.VehicleActivity">
 
     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Car Model"
+             android:textStyle="bold"
+             android:textSize="25sp"
+             android:textAlignment="center"
+             android:id="@+id/carModelDetail"/>
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="PLATE"
+             android:textStyle="bold"
+             android:textSize="25sp"
+             android:textAlignment="center"
+             android:id="@+id/carPlateDetail"/>
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="10">
-
-        <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="0dp"
-             android:orientation="vertical"
-             android:layout_weight="2">
-             <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:text="Car Model"
-                 android:textStyle="bold"
-                 android:textSize="25sp"
-                 android:textAlignment="center"
-                 android:id="@+id/carModelDetail"/>
-             <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:text="PLATE"
-                 android:textStyle="bold"
-                 android:textSize="25sp"
-                 android:textAlignment="center"
-                 android:id="@+id/carPlateDetail"/>
-         </LinearLayout>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
-            android:id="@+id/servicesListView"/>
+        android:id="@+id/servicesListView"/>
 
     </LinearLayout>
 
@@ -51,7 +42,8 @@
         android:text="TOTAL"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        android:id="@+id/TVTotalServices"/>
+        android:id="@+id/TVTotalServices"
+        android:paddingBottom="@dimen/activity_horizontal_margin"/>
 
 
     <android.support.design.widget.FloatingActionButton

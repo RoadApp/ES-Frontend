@@ -43,7 +43,6 @@ public class PostLoginRequest {
         final Request request = new JsonObjectRequest(url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("@@@@USER", response.toString());
                 try {
                     User user = parseUser(response);
                     callback.onPostLoginCallbackSucess(user);
@@ -55,10 +54,6 @@ public class PostLoginRequest {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                error.printStackTrace();
-                Log.i("###########@", String.valueOf(error));
-                Log.i("############", String.valueOf(error.networkResponse));
-//                Log.i("############@@", String.valueOf(error.networkResponse.statusCode));
                 callback.onPostUserCallbackERror(error.getMessage());
             }
         });

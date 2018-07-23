@@ -24,8 +24,8 @@ public class GetServicesByCarRequest {
         this.callback = callback;
     }
 
-    public Request getRequest(Map<String, String> headers){
-        String url = AppConfig.getInstance().car();
+    public Request getRequest(Map<String, String> headers, String carId){
+        String url = AppConfig.getInstance().service() + "?car=" + carId;
         Type type = new TypeToken<JsonArray>(){
         }.getType();
         final GsonReflectionRequest request = new GsonReflectionRequest(url, type, headers, new Response.Listener<JsonArray>() {

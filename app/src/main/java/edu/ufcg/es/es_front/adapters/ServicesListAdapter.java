@@ -54,7 +54,7 @@ public class ServicesListAdapter extends BaseAdapter {
 
         String name = service.getDescription() + " -- ";
         tvName.setText(name);
-        tvPrice.setText(String.valueOf(service.getExpense()));
+        tvPrice.setText("$: " + String.valueOf(service.getExpense()));
 
         return view;
     }

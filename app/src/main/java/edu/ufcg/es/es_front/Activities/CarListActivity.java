@@ -37,7 +37,11 @@ public class CarListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_car_list);
 
         init();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         getCars();
     }
 

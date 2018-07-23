@@ -162,14 +162,14 @@ public class CreateServiceActivity extends AppCompatActivity {
             @Override
             public void onPostServiceCallbackSucess(Service service) {
                 ActivityUtils.cancelProgressDialog();
-                //Todo: something
+                finish();
 
             }
 
             @Override
             public void onPostServiceCallbackError(String message) {
                 ActivityUtils.cancelProgressDialog();
-                //Todo: something
+                ActivityUtils.showToast(CreateServiceActivity.this, "An error ocurred.");
             }
         };
     }

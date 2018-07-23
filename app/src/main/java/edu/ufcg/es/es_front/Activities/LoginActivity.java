@@ -143,7 +143,6 @@ public class LoginActivity extends AppCompatActivity{
         return new OnPostLoginCallback() {
             @Override
             public void onPostLoginCallbackSucess(User response) {
-                Log.d("@@@@USER", response.toString());
                 ActivityUtils.cancelProgressDialog();
                 UserController.setUserLogged(response);
                 updateUI();
