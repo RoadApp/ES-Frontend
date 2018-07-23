@@ -16,4 +16,6 @@
     <string name="button_formNewUser_Submit">Confirmar</string>
     <string name="vehicle_name">Vehicle name</string>
     <string name="vehicle_brand">Marca</string>
+    <string name="button_submit">Enviar</string>
+    <string name="edt_formLogin_password">Seña</string>
 </resources>

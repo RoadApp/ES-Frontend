@@ -15,6 +15,21 @@
     <string name="formNewUser_password">Senha</string>
     <string name="formNewUser_confirmPassword">Confirmar senha</string>
     <string name="app_name" translatable="false">Road</string>
-    <string name="vehicle_name">Vehicle name</string>
+    <string name="vehicle_name">Nome do veículo</string>
     <string name="vehicle_brand">Modelo</string>
+    <string name="button_submit">Enviar</string>
+    <string name="edt_formLogin_password">Senha</string>
+    <string name="vehicle_plate">Placa (AAA-0000)</string>
+    <string name="vehicle_year">Ano</string>
+    <string name="vehicle_odometer">Quilometragem</string>
+    <string name="vehicle_semanal_media">Kms semanais</string>
+    <string name="vehicle_expiration_month">Mês de validade</string>
+    <string name="cnhExpiration">Vencimento de sua CNH</string>
+    <string name="birthDate">Data de nascimento</string>
+    <string name="actual_odometer">Quilometragem atual</string>
+    <string name="service_name">Nome do serviço</string>
+    <string name="service_price">Valor do serviço</string>
+    <string name="date">Data</string>
+    <string name="service_description">Descrição do serviço</string>
+    <string name="title_activity_car_list">Lista de carros</string>
 </resources>
