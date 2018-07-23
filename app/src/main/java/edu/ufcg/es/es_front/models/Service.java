@@ -3,17 +3,18 @@ package edu.ufcg.es.es_front.models;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Service implements Serializable{
+public class Service implements Serializable {
 
-    private String _id, name, price, actualOdometer, description;
-    private Date date;
+    private String _id, madeAt, car, mileage, place, description;
+    private float expense;
 
-    public Service(String _id, String name, String price, Date date, String actualOdometer, String description) {
+    public Service(String _id, String madeAt, String car, String mileage, float expense, String place, String description) {
         this._id = _id;
-        this.name = name;
-        this.price = price;
-        this.date = date;
-        this.actualOdometer = actualOdometer;
+        this.madeAt = madeAt;
+        this.car = car;
+        this.mileage = mileage;
+        this.expense = expense;
+        this.place = place;
         this.description = description;
     }
 
@@ -25,28 +26,44 @@ public class Service implements Serializable{
         this._id = _id;
     }
 
-    public String getName() {
-        return name;
+    public String getMadeAt() {
+        return madeAt;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMadeAt(String madeAt) {
+        this.madeAt = madeAt;
     }
 
-    public String getPrice() {
-        return price;
+    public String getCar() {
+        return car;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public String getActualOdometer() {
-        return actualOdometer;
+    public String getMileage() {
+        return mileage;
     }
 
-    public void setActualOdometer(String actualOdometer) {
-        this.actualOdometer = actualOdometer;
+    public void setMileage(String mileage) {
+        this.mileage = mileage;
+    }
+
+    public float getExpense() {
+        return expense;
+    }
+
+    public void setExpense(float expense) {
+        this.expense = expense;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getDescription() {
@@ -57,21 +74,16 @@ public class Service implements Serializable{
         this.description = description;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
         return "Service{" +
                 "_id='" + _id + '\'' +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", date='" + date + '\'' +
+                ", madeAt='" + madeAt + '\'' +
+                ", car='" + car + '\'' +
+                ", mileage='" + mileage + '\'' +
+                ", expense='" + expense + '\'' +
+                ", place='" + place + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

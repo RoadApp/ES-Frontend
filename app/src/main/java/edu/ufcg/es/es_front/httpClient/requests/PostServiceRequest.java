@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import edu.ufcg.es.es_front.httpClient.AppConfig;
@@ -43,7 +44,7 @@ public class PostServiceRequest {
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = super.getHeaders();
+                HashMap<String, String> headers = new HashMap<String, String>();
                 headers.putAll(customHeaders);
                 return headers;
             }

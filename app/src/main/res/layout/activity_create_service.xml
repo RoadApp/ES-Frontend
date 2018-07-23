@@ -57,10 +57,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
-                android:maxLength="8"
+                android:maxLength="10"
                 android:textColor="@color/background_light"/>
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/place_optional"
+        android:textColorHint="@color/white">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_formNewService_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@color/background_light"/>
+
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -75,22 +91,6 @@
             android:inputType="number"
             android:maxLines="1"
             android:textColor="@color/background_light"/>
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/service_description"
-        android:textColorHint="@color/white">
-
-        <AutoCompleteTextView
-            android:id="@+id/edt_formNewService_description"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:inputType="textAutoCorrect"
-            android:maxLines="6"
-            android:textColor="@color/background_light" />
 
     </android.support.design.widget.TextInputLayout>
 

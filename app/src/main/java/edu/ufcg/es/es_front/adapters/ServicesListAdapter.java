@@ -18,11 +18,14 @@ public class ServicesListAdapter extends BaseAdapter {
 
     private ArrayList<Service> services;
     private Context context;
+    private float totalCost;
 
     public ServicesListAdapter(ArrayList<Service> services, Context context) {
         super();
         this.services = services;
         this.context = context;
+
+        this.totalCost = this.calculateCost();
     }
 
     @Override
@@ -49,10 +52,23 @@ public class ServicesListAdapter extends BaseAdapter {
         TextView tvName = view.findViewById(R.id.nameServiceCard);
         TextView tvPrice = view.findViewById(R.id.priceServiceCard);
 
-        String name = service.getName() + " -- ";
+        String name = service.getDescription() + " -- ";
         tvName.setText(name);
-        tvPrice.setText(service.getPrice());
+        tvPrice.setText(String.valueOf(service.getExpense()));
 
         return view;
+    }
+
+    public float getTotalCost() {
+        return totalCost;
+    }
+
+    private float calculateCost(){
+        float cost = 0;
+        for (Service service: services) {
+            cost += service.getExpense();
+        }
+
+        return cost;
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Road</string>
+    <string name="app_name" translatable="false">Road</string>
     <string name="title_activity_user_home">Home</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -22,11 +22,11 @@
     <string name="button_submit">Submit</string>
     <string name="login_btnRegister">Register</string>
     <string name="version" translatable="false">ver 1.0.00</string>
-    <string name="edt_formLogin_Email" translatable="false">E-mail</string>
+    <string name="edt_formLogin_Email">Email</string>
     <string name="edt_formLogin_password">Password</string>
-    <string name="login_btnLogin" translatable="false">Login</string>
-    <string name="action_logout" translatable="false">Logout</string>
-    <string name="vehicle_model" translatable="false">Vehicle model</string>
+    <string name="login_btnLogin">Login</string>
+    <string name="action_logout">Logout</string>
+    <string name="vehicle_model">Vehicle model</string>
     <string name="vehicle_brand">Brand</string>
     <string name="vehicle_plate">Plate (AAA-0000)</string>
     <string name="vehicle_year">Year</string>
@@ -41,7 +41,6 @@
     <string name="date">Data</string>
     <string name="service_description">Descrição do serviço</string>
     <string name="title_activity_car_list">CarListActivity</string>
-    <string name="button_formNewUser_Submit">Submit</string>
-    <string name="vehicle_name">Vehicle name</string>
+    <string name="place_optional">Place (optional)</string>
 
 </resources>

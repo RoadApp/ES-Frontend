@@ -4,7 +4,7 @@ public class AppConfig {
 
     private static AppConfig instance;
 
-    private final String host = "http://192.168.1.7:3000";
+    private final String host = "http://192.168.2.11:3000";
 
     private final String all = "/all";
 
